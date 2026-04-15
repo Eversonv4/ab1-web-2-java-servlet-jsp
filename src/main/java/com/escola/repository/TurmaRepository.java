@@ -176,20 +176,44 @@ public class TurmaRepository {
       ps.setInt(3, id);
       ps.executeUpdate();
 
-      PreparedStatement del = c.prepareStatement(
-          "DELETE FROM turma_aluno WHERE turma_id=?");
+      Set<Integer> atuais = new HashSet<>();
 
-      del.setInt(1, id);
-      del.executeUpdate();
+      PreparedStatement psSelect = c.prepareStatement(
+          "SELECT aluno_id FROM turma_aluno WHERE turma_id=?");
+
+      psSelect.setInt(1, id);
+      ResultSet rs = psSelect.executeQuery();
+
+      while (rs.next()) {
+        atuais.add(rs.getInt("aluno_id"));
+      }
+
+      Set<Integer> novos = new HashSet<>();
 
       if (alunos != null) {
+        for (String a : alunos) {
+          novos.add(Integer.parseInt(a));
+        }
+      }
 
-        PreparedStatement ins = c.prepareStatement(
-            "INSERT INTO turma_aluno(turma_id, aluno_id) VALUES(?,?)");
+      for (Integer alunoId : atuais) {
+        if (!novos.contains(alunoId)) {
+          PreparedStatement del = c.prepareStatement(
+              "DELETE FROM turma_aluno WHERE turma_id=? AND aluno_id=?");
 
-        for (String alunoId : alunos) {
+          del.setInt(1, id);
+          del.setInt(2, alunoId);
+          del.executeUpdate();
+        }
+      }
+
+      for (Integer alunoId : novos) {
+        if (!atuais.contains(alunoId)) {
+          PreparedStatement ins = c.prepareStatement(
+              "INSERT INTO turma_aluno(turma_id, aluno_id) VALUES(?,?)");
+
           ins.setInt(1, id);
-          ins.setInt(2, Integer.parseInt(alunoId));
+          ins.setInt(2, alunoId);
           ins.executeUpdate();
         }
       }
