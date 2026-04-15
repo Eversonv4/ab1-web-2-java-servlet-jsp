@@ -1,0 +1,17 @@
+D:\projetos\web2\escola-app\src\main\java\com\escola\controller\AlunoServlet.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\controller\DisciplinaServlet.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\controller\NotaServlet.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\controller\ProfessorServlet.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\controller\TurmaServlet.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\database\Database.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\database\InitDB.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\listener\AppInitListener.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\model\Aluno.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\model\Disciplina.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\model\Professor.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\model\Turma.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\repository\AlunoRepository.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\repository\DisciplinaRepository.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\repository\ProfessorRepository.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\repository\TurmaRepository.java
+D:\projetos\web2\escola-app\src\main\java\com\escola\service\AlunoService.java

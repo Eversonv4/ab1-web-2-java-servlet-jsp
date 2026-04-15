@@ -1,0 +1,17 @@
+com\escola\controller\TurmaServlet.class
+com\escola\database\Database.class
+com\escola\listener\AppInitListener.class
+com\escola\model\Turma.class
+com\escola\model\Disciplina.class
+com\escola\repository\AlunoRepository.class
+com\escola\controller\AlunoServlet.class
+com\escola\service\AlunoService.class
+com\escola\repository\TurmaRepository.class
+com\escola\database\InitDB.class
+com\escola\model\Aluno.class
+com\escola\model\Professor.class
+com\escola\repository\ProfessorRepository.class
+com\escola\controller\ProfessorServlet.class
+com\escola\controller\NotaServlet.class
+com\escola\repository\DisciplinaRepository.class
+com\escola\controller\DisciplinaServlet.class

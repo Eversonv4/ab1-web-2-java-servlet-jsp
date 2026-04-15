@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 
 public class Database {
     public static Connection getConnection() throws Exception {
-        return DriverManager.getConnection("jdbc:sqlite:escola.db");
+        Class.forName("org.sqlite.JDBC");
+        return DriverManager.getConnection("jdbc:sqlite:C:/sqlite/escola.db");
     }
 }

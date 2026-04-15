@@ -6,7 +6,7 @@ import java.sql.Statement;
 public class InitDB {
 
     public static void init() {
-        try(Connection c = Database.getConnection()) {
+        try (Connection c = Database.getConnection()) {
 
             Statement s = c.createStatement();
 
@@ -26,7 +26,7 @@ public class InitDB {
                     "nota1 REAL," +
                     "nota2 REAL)");
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

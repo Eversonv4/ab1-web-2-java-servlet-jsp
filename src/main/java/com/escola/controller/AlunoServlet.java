@@ -15,6 +15,10 @@ import com.escola.service.AlunoService;
 
 @WebServlet("/alunos")
 public class AlunoServlet extends HttpServlet {
+    @Override
+    public void init() {
+        com.escola.database.InitDB.init();
+    }
 
     private AlunoService service = new AlunoService();
 
