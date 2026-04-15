@@ -164,6 +164,41 @@ public class TurmaRepository {
     return null;
   }
 
+  public void update(int id, String nome, int professorId, String[] alunos) {
+
+    try (Connection c = Database.getConnection()) {
+
+      PreparedStatement ps = c.prepareStatement(
+          "UPDATE turmas SET nome=?, professor_id=? WHERE id=?");
+
+      ps.setString(1, nome);
+      ps.setInt(2, professorId);
+      ps.setInt(3, id);
+      ps.executeUpdate();
+
+      PreparedStatement del = c.prepareStatement(
+          "DELETE FROM turma_aluno WHERE turma_id=?");
+
+      del.setInt(1, id);
+      del.executeUpdate();
+
+      if (alunos != null) {
+
+        PreparedStatement ins = c.prepareStatement(
+            "INSERT INTO turma_aluno(turma_id, aluno_id) VALUES(?,?)");
+
+        for (String alunoId : alunos) {
+          ins.setInt(1, id);
+          ins.setInt(2, Integer.parseInt(alunoId));
+          ins.executeUpdate();
+        }
+      }
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
+
   public void delete(int id) {
 
     try (Connection c = Database.getConnection()) {

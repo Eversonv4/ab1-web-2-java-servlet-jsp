@@ -82,6 +82,8 @@ public class TurmaServlet extends HttpServlet {
       HttpServletResponse resp)
       throws IOException {
 
+    req.setCharacterEncoding("UTF-8");
+
     String action = req.getParameter("action");
 
     if ("nota".equals(action)) {
@@ -101,11 +103,17 @@ public class TurmaServlet extends HttpServlet {
       return;
     }
 
+    String idParam = req.getParameter("id");
     String nome = req.getParameter("nome");
     int professor = Integer.parseInt(req.getParameter("professor_id"));
     String[] alunos = req.getParameterValues("alunos");
 
-    repo.save(nome, professor, alunos);
+    if (idParam == null || idParam.isEmpty()) {
+      repo.save(nome, professor, alunos);
+    } else {
+      int id = Integer.parseInt(idParam);
+      repo.update(id, nome, professor, alunos);
+    }
 
     resp.sendRedirect("turmas");
   }

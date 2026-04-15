@@ -110,7 +110,7 @@
             <select name="professor_id" required>
                 <% for(Professor p : professores){ %>
                 <option value="<%= p.getId() %>"
-                    <%= (turma != null && turma.getProfessorId().equals(p.getId())) ? "selected" : "" %>>
+                    <%= (turma != null && turma.getProfessorId() == p.getId()) ? "selected" : "" %>>
                     <%= p.getNome() %>
                 </option>
                 <% } %>
